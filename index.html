@@ -386,7 +386,7 @@
   </div>
 
   <script>
-    // 預設清單資料
+    // 預設清單資料（已補充床位規格 90 x 190 cm）
     const defaultData = [
       {
         category: "📄 重要證件與文件",
@@ -394,7 +394,7 @@
       },
       {
         category: "🛏️ 床寢與生活用品",
-        items: ["床墊 (建議尺寸先確認)", "被子 / 薄被", "枕頭", "床單 / 枕頭套", "延長線 (建議帶防載斷電型)", "衣架與曬衣夾"]
+        items: ["床墊 (規格：90 × 190 cm / 3尺×6尺)", "被子 / 薄被", "枕頭", "床單 / 枕頭套 (90 × 190 cm)", "延長線 (建議帶防載斷電型)", "衣架與曬衣夾"]
       },
       {
         category: "🧴 個人清潔與衛浴",
@@ -495,7 +495,6 @@
     }
 
     function deleteCustomItem(idx) {
-      // 刪除該自訂項目的勾選狀態紀錄
       localStorage.removeItem(`custom_${idx}`);
       customItems.splice(idx, 1);
       localStorage.setItem('dorm_custom_items', JSON.stringify(customItems));
@@ -519,7 +518,6 @@
       }
     }
 
-    // 支援按下 Enter 直接新增
     document.getElementById('custom-input').addEventListener('keypress', function (e) {
       if (e.key === 'Enter') addCustomItem();
     });
