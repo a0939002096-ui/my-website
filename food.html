@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍱 嶺東周邊美食地圖</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --sub-text: #94a3b8;
+      --primary: #38bdf8;
+      --border: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 1.5rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 0.3rem;
+      margin-bottom: 1.5rem;
+      background: var(--card-bg);
+      padding: 0.4rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .nav-btn {
+      flex: 1;
+      padding: 0.65rem 0.2rem;
+      text-align: center;
+      color: var(--sub-text);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.82rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-btn.active {
+      background: var(--primary);
+      color: #0f172a;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      color: var(--sub-text);
+      font-size: 0.9rem;
+    }
+
+    .food-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .food-info h3 {
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .food-info p {
+      font-size: 0.85rem;
+      color: var(--sub-text);
+      margin-bottom: 0.4rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--primary);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .food-link {
+      background: var(--primary);
+      color: #0f172a;
+      text-decoration: none;
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      color: var(--sub-text);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <nav class="nav-tabs">
+      <a href="./" class="nav-btn">📦 入住清單</a>
+      <a href="notice.html" class="nav-btn">📢 宿舍須知</a>
+      <a href="map.html" class="nav-btn">🏫 校區地圖</a>
+      <a href="food.html" class="nav-btn active">🍱 周邊美食</a>
+    </nav>
+
+    <header>
+      <h1>🍱 嶺東商圈與周邊美食推薦</h1>
+      <p class="subtitle">精選嶺東科大學生最愛的平價美食與必吃店家！</p>
+    </header>
+
+    <div class="food-card">
+      <div class="food-info">
+        <h3>📍 嶺東路/建功路便當巷</h3>
+        <p>正餐首選！各式平價便當、快炒與火鍋料理集散地。</p>
+        <span class="tag">平價正餐</span>
+      </div>
+      <a href="https://www.google.com/maps/search/%E5%8F%B0%E4%B8%AD%E5%B6%BA%E6%9D%B1%E7%BE%8E%E9%A3%9F" target="_blank" class="food-link">導航前往</a>
+    </div>
+
+    <div class="food-card">
+      <div class="food-info">
+        <h3>🥪 嶺東後門早午餐街</h3>
+        <p>西式早餐、粉漿蛋餅、大份量漢堡，上課前的能量來源。</p>
+        <span class="tag">活力早餐</span>
+      </div>
+      <a href="https://www.google.com/maps/search/%E5%B6%BA%E6%9D%B1%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%B8%20%E6%97%A9%E5%8D%88%E9%A4%90" target="_blank" class="food-link">導航前往</a>
+    </div>
+
+    <div class="food-card">
+      <div class="food-info">
+        <h3>🧋 忠勇路手搖飲料街</h3>
+        <p>各大連鎖飲料店一應俱全，宵夜炸雞鹹酥雞集中地。</p>
+        <span class="tag">下午茶宵夜</span>
+      </div>
+      <a href="https://www.google.com/maps/search/%E5%8F%B0%E4%B8%AD%E5%BF%A0%E5%8B%87%E8%B7%AF%E9%80%B2%20%E9%83%B5%E5%B1%80%E9%96%B1" target="_blank" class="food-link">導航前往</a>
+    </div>
+
+    <footer>
+      <p>Made with ❤️ by <strong>愷</strong></p>
+    </footer>
+  </div>
+
+</body>
+</html>
