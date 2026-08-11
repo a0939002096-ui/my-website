@@ -14,6 +14,7 @@
       --primary: #38bdf8;
       --primary-glow: rgba(56, 189, 248, 0.25);
       --accent: #818cf8;
+      --danger: #f43f5e;
     }
 
     * {
@@ -41,7 +42,7 @@
       width: 100%;
     }
 
-    /* 導覽區域：預設電腦版橫排 */
+    /* 導覽區域 */
     .nav-tabs {
       display: flex;
       gap: 0.3rem;
@@ -67,11 +68,6 @@
       white-space: nowrap;
     }
 
-    .nav-btn:hover {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.05);
-    }
-
     .nav-btn.active {
       background: linear-gradient(135deg, var(--primary), var(--accent));
       color: #0f172a;
@@ -79,7 +75,6 @@
       box-shadow: 0 4px 12px var(--primary-glow);
     }
 
-    /* 手機版下拉選單：預設隱藏 */
     .nav-select-wrapper {
       display: none;
       margin-bottom: 1.5rem;
@@ -96,7 +91,6 @@
       font-size: 1rem;
       font-weight: 700;
       outline: none;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       appearance: none;
       background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%38bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
       background-repeat: no-repeat;
@@ -110,19 +104,14 @@
       padding: 0.5rem;
     }
 
-    /* 📱 手響應式處理：螢幕小於 640px 切換為下拉式選單 */
     @media (max-width: 640px) {
-      .nav-tabs {
-        display: none;
-      }
-      .nav-select-wrapper {
-        display: block;
-      }
+      .nav-tabs { display: none; }
+      .nav-select-wrapper { display: block; }
     }
 
     header {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     h1 {
@@ -132,7 +121,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 0.5rem;
-      letter-spacing: -0.5px;
     }
 
     p.subtitle {
@@ -140,6 +128,92 @@
       font-size: 0.9rem;
     }
 
+    /* 📊 進度條面板 */
+    .progress-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .progress-text {
+      color: var(--primary);
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 10px;
+      transition: width 0.3s ease;
+    }
+
+    /* ➕ 手動新增項目輸入框 */
+    .add-item-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .add-input {
+      flex: 1;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 0.65rem 0.9rem;
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .add-input:focus {
+      border-color: var(--primary);
+    }
+
+    .add-btn {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #0f172a;
+      border: none;
+      border-radius: 10px;
+      padding: 0 1.2rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .add-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* 清單樣式 */
     .category {
       background: var(--card-bg);
       backdrop-filter: blur(12px);
@@ -147,12 +221,6 @@
       border-radius: 16px;
       padding: 1.2rem;
       margin-bottom: 1.2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .category:hover {
-      border-color: rgba(56, 189, 248, 0.3);
     }
 
     .category-title {
@@ -160,9 +228,6 @@
       font-weight: 700;
       color: var(--primary);
       margin-bottom: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
 
     .item-list {
@@ -174,12 +239,6 @@
       align-items: center;
       padding: 0.65rem 0.4rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 8px;
-      transition: background 0.2s;
-    }
-
-    .item:hover {
-      background: rgba(255, 255, 255, 0.03);
     }
 
     .item:last-child {
@@ -195,8 +254,6 @@
       margin-right: 0.9rem;
       cursor: pointer;
       position: relative;
-      transition: all 0.2s ease;
-      background: transparent;
       flex-shrink: 0;
     }
 
@@ -220,13 +277,45 @@
       cursor: pointer;
       font-size: 0.95rem;
       flex: 1;
-      transition: color 0.2s;
     }
 
     .item input[type="checkbox"]:checked + label {
       text-decoration: line-through;
       color: var(--sub-text);
       opacity: 0.6;
+    }
+
+    .delete-btn {
+      background: transparent;
+      border: none;
+      color: var(--sub-text);
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      transition: color 0.2s;
+    }
+
+    .delete-btn:hover {
+      color: var(--danger);
+    }
+
+    .reset-area {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+
+    .reset-btn {
+      background: transparent;
+      border: none;
+      color: var(--sub-text);
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .reset-btn:hover {
+      color: var(--danger);
     }
 
     footer {
@@ -264,9 +353,31 @@
 
     <header>
       <h1>📦 嶺東宿舍入住準備清單</h1>
-      <p class="subtitle">勾選已準備物品，進度將自動保存於此設備中！</p>
+      <p class="subtitle">追蹤準備進度，還能手動新增個人專屬物品！</p>
     </header>
 
+    <!-- 📊 完成進度條 -->
+    <div class="progress-card">
+      <div class="progress-header">
+        <span>🎒 準備完成度</span>
+        <span class="progress-text" id="progress-text">0 / 0 (0%)</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- ➕ 手動新增物品區域 -->
+    <div class="add-item-card">
+      <input type="text" id="custom-input" class="add-input" placeholder="✨ 新增自訂物品（例如：延長線、吹風機...）">
+      <button class="add-btn" onclick="addCustomItem()">新增</button>
+    </div>
+
+    <div class="reset-area">
+      <button class="reset-btn" onclick="resetAll()">🔄 清空勾選進度</button>
+    </div>
+
+    <!-- 清單容器 -->
     <div id="checklist"></div>
 
     <footer>
@@ -275,7 +386,8 @@
   </div>
 
   <script>
-    const checklistData = [
+    // 預設清單資料
+    const defaultData = [
       {
         category: "📄 重要證件與文件",
         items: ["身分證正本與影本", "健保卡", "印章", "宿舍入住通知書/繳費收據", "大頭照數張 (備用)"]
@@ -286,32 +398,42 @@
       },
       {
         category: "🧴 個人清潔與衛浴",
-        items: ["洗髮精 / 沐浴乳", "牙刷 / 牙膏 / 漱口杯", "毛巾 / 浴巾", "洗衣精 / 洗衣袋", "臉盆 / 澡籃 (攜帶盥洗用品用)", "吹風機"]
+        items: ["洗髮精 / 沐浴乳", "牙刷 / 牙膏 / 漱口杯", "毛巾 / 浴巾", "洗衣精 / 洗衣袋", "臉盆 / 澡籃", "吹風機"]
       },
       {
         category: "💻 學習與電子產品",
-        items: ["筆記型電腦 / 電源線", "手機充電器 / 行動電源", "網路線 (部分宿舍需自備)", "多孔插座 / 轉接頭"]
+        items: ["筆記型電腦 / 電源線", "手機充電器 / 行動電源", "網路線", "多孔插座 / 轉接頭"]
       },
       {
         category: "💊 常用藥品與雜項",
-        items: ["個人常備藥物 (感冒、腸胃、止痛)", "口罩", "衛生紙 / 濕紙巾", "環保餐具 / 水壺"]
+        items: ["個人常備藥物", "口罩", "衛生紙 / 濕紙巾", "環保餐具 / 水壺"]
       }
     ];
 
-    const checklistContainer = document.getElementById('checklist');
+    // 從 localStorage 讀取自訂項目，沒有就給預設
+    let customItems = JSON.parse(localStorage.getItem('dorm_custom_items')) || [];
 
     function renderChecklist() {
+      const checklistContainer = document.getElementById('checklist');
       checklistContainer.innerHTML = '';
-      checklistData.forEach((cat, catIdx) => {
+
+      let totalItemsCount = 0;
+      let checkedItemsCount = 0;
+
+      // 渲染預設分類
+      defaultData.forEach((cat, catIdx) => {
         const catDiv = document.createElement('div');
         catDiv.className = 'category';
-        
+
         let itemsHTML = cat.items.map((item, itemIdx) => {
-          const key = `item_${catIdx}_${itemIdx}`;
-          const isChecked = localStorage.getItem(key) === 'true' ? 'checked' : '';
+          totalItemsCount++;
+          const key = `default_${catIdx}_${itemIdx}`;
+          const isChecked = localStorage.getItem(key) === 'true';
+          if (isChecked) checkedItemsCount++;
+
           return `
             <li class="item">
-              <input type="checkbox" id="${key}" ${isChecked} onchange="toggleCheck('${key}')">
+              <input type="checkbox" id="${key}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${key}')">
               <label for="${key}">${item}</label>
             </li>
           `;
@@ -323,12 +445,84 @@
         `;
         checklistContainer.appendChild(catDiv);
       });
+
+      // 渲染個人自訂分類（如果有的話）
+      if (customItems.length > 0) {
+        const customDiv = document.createElement('div');
+        customDiv.className = 'category';
+
+        let customItemsHTML = customItems.map((itemText, idx) => {
+          totalItemsCount++;
+          const key = `custom_${idx}`;
+          const isChecked = localStorage.getItem(key) === 'true';
+          if (isChecked) checkedItemsCount++;
+
+          return `
+            <li class="item">
+              <input type="checkbox" id="${key}" ${isChecked ? 'checked' : ''} onchange="toggleCheck('${key}')">
+              <label for="${key}">${itemText}</label>
+              <button class="delete-btn" onclick="deleteCustomItem(${idx})">✕</button>
+            </li>
+          `;
+        }).join('');
+
+        customDiv.innerHTML = `
+          <div class="category-title">⭐ 個人自訂物品</div>
+          <ul class="item-list">${customItemsHTML}</ul>
+        `;
+        checklistContainer.appendChild(customDiv);
+      }
+
+      // 更新進度條 UI
+      updateProgress(checkedItemsCount, totalItemsCount);
     }
 
     function toggleCheck(key) {
       const checkbox = document.getElementById(key);
       localStorage.setItem(key, checkbox.checked);
+      renderChecklist();
     }
+
+    function addCustomItem() {
+      const input = document.getElementById('custom-input');
+      const val = input.value.trim();
+      if (val === '') return;
+
+      customItems.push(val);
+      localStorage.setItem('dorm_custom_items', JSON.stringify(customItems));
+      input.value = '';
+      renderChecklist();
+    }
+
+    function deleteCustomItem(idx) {
+      // 刪除該自訂項目的勾選狀態紀錄
+      localStorage.removeItem(`custom_${idx}`);
+      customItems.splice(idx, 1);
+      localStorage.setItem('dorm_custom_items', JSON.stringify(customItems));
+      renderChecklist();
+    }
+
+    function updateProgress(checked, total) {
+      const percentage = total === 0 ? 0 : Math.round((checked / total) * 100);
+      document.getElementById('progress-text').innerText = `${checked} / ${total} (${percentage}%)`;
+      document.getElementById('progress-fill').style.width = `${percentage}%`;
+    }
+
+    function resetAll() {
+      if (confirm('確定要清空所有已勾選的項目嗎？')) {
+        Object.keys(localStorage).forEach(key => {
+          if (key.startsWith('default_') || key.startsWith('custom_')) {
+            localStorage.removeItem(key);
+          }
+        });
+        renderChecklist();
+      }
+    }
+
+    // 支援按下 Enter 直接新增
+    document.getElementById('custom-input').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') addCustomItem();
+    });
 
     renderChecklist();
   </script>
